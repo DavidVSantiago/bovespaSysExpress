@@ -10,7 +10,7 @@ module.exports = {
     async listAcoes(req, res){ // invocada pela rota: get('/acoes/')
         // carrega todas as ações listadas no banco
         const acoes = await Acao.findAll({raw:true})
-        res.render('acoes/all',{acoes}) // renderiza a view de exibição das ações
+        res.render('home',{acoes}) // renderiza a view de exibição das ações
     },
     async listDetalhes(req, res){ // invocada pela rota: get('/acoes/detalhes/:id')
         // captura o id da ação selecionada
@@ -27,17 +27,17 @@ module.exports = {
         }
         try {
             // carrega o html do site com os detalhes da ação
-            const buffer = await got(`https://www.fundamentus.com.br/detalhes.php?papel=${acao.code}`,{return: 'buffer'})
-            const html = buffer.body
+            const buffer = await axios.get(`https://www.fundamentus.com.br/detalhes.php?papel=${acao.code}`)
+            const html = buffer.data
             const $ = cheerio.load(html) // converte para json mais legível
             // faz a filtragem com base nos seletores desejados
-            $('tbody').each((index, table) => {
+            $('.w728').each((index, table) => {
+                console.log("PRINT!");
                 const fields = $(table).find('.data > .txt')
                 switch(index){
                     case 0: fillTable1(fields,fullData); break;
                     case 1: fillTable2(fields,fullData); break;
                     case 2: fillTable3(fields,fullData); break;
-                    case 3: fillTable4(fields,fullData); break;
                     case 4: fillTable5(fields,fullData); break;
                 }
             })
@@ -92,14 +92,6 @@ function fillTable3(fields,fullData){
     fullData.divBr_patrim = fields[19].children[0].data.trim() // divBr-patrim
     fullData.cresRec5anos = fields[20].children[0].data.trim() // cresRec5anos
     fullData.girosAtivos = fields[21].children[0].data.trim() // girosAtivos
-}
-function fillTable4(fields,fullData){
-    fullData.ativo = fields[0].children[0].data.trim() // Ativo
-    fullData.divBruta = fields[1].children[0].data.trim() // Dív. Bruta
-    fullData.disponibilidades = fields[2].children[0].data.trim() // Disponibilidades
-    fullData.divLiquida = fields[3].children[0].data.trim() // Dív. Líquida
-    fullData.ativoCirculante = fields[4].children[0].data.trim() // Ativo Circulante
-    fullData.patrimLiq = fields[5].children[0].data.trim() // Patrim. Líq
 }
 function fillTable5(fields,fullData){
     fullData.receitaLiquida12meses = fields[0].children[0].data.trim() // Receita Líquida 12 meses

@@ -104,24 +104,25 @@ h1{
             background-color: #509c50;
             color: white;
         }
-        .container .block .acao:nth-child(6n-5){
+        .container .block .acao:nth-child(6n){
             background-image: url("/imgs/cover_01.webp");
         }
-        .container .block .acao:nth-child(6n-4){
+        .container .block .acao:nth-child(6n+1){
             background-image: url("/imgs/cover_02.webp");
         }
-        .container .block .acao:nth-child(6n-3){
+        .container .block .acao:nth-child(6n+2){
             background-image: url("/imgs/cover_03.webp");
         }
-        .container .block .acao:nth-child(6n-2){
+        .container .block .acao:nth-child(6n+3){
             background-image: url("/imgs/cover_04.webp");
         }
-        .container .block .acao:nth-child(6n-1){
+        .container .block .acao:nth-child(6n+4){
             background-image: url("/imgs/cover_05.webp");
         }
-        .container .block .acao:nth-child(6n){
+        .container .block .acao:nth-child(6n+5){
             background-image: url("/imgs/cover_06.webp");
         }
+    
             .container .block .acao .code{
                 font-size: 30px;
                 margin-top: 5px;
@@ -227,7 +228,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #eee;
     background-color: #172017;
 }
 
@@ -260,4 +261,16 @@ footer h3{
 footer hr{
     margin: 20px 0;
     color: #629662;
+}
+
+.sobre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+.sobre p{
+    margin-bottom:5px;
 }

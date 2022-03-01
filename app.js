@@ -28,6 +28,11 @@ app.use(express.static('public')) // express config
 // configurações das rotas Mestres
 app.use('/acoes', acaoRoutes)
 
+app.get('/sobre', // cria a rota de exibição das tasks '/tasks/'
+    (req,res)=>{
+        res.render('sobre')
+    }
+)
 
 app.get('/', // cria a rota de exibição das tasks '/tasks/'
     (req,res)=>{
@@ -41,7 +46,7 @@ sequelize
     .then(() => {
         app.listen(port, () => { console.log(`Executando na porta ${port}`) })
         
-        //updateCotacoes() // atualiza as cotações no banco de dados
+        updateCotacoes() // atualiza as cotações no banco de dados
         
         /* Agendador de tarefa. Executa a atualização das ações no banco a cada 10 min*/
         cron.schedule('*/1 * * * *', () => {
@@ -84,12 +89,15 @@ async function loadCotacoes() {
             // captura os dados do 'nome','código' e 'preço' de cada uma das ações
             const lines = $(elem).find('.table-date-value')
             const name = lines[0].children[0].data.trim()
-            const code = lines[1].children[0].data.trim()
-            const price = lines[2].children[0].data.trim()
-            const acao = {
-                name, code, price
+            // verifica se o ativo não é um fundo imobiliário (FII)
+            if (!name.toLowerCase().startsWith('fii')) {
+                const code = lines[1].children[0].data.trim()
+                const price = lines[2].children[0].data.trim()
+                const acao = {
+                    name, code, price
+                }
+                acoes.push(acao)
             }
-            acoes.push(acao)
         })
         return acoes // retorna as ações carregadas
     } catch (err) {
