@@ -7,7 +7,7 @@ const sequelize = require('./db/conn')
 const acaoRoutes = require('./routes/AcaoRoutes')
 const Acao = require('./models/Acao')
 
-const port = process.env.port || 4000
+const port = process.env.PORT || 3000
 
 // configurações do 'express'
 const app = express()
