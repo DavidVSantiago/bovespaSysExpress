@@ -1,7 +1,8 @@
 <div class="container">
+    <input id="timeLastUpdate" type="hidden" value="{{timeLastUpdate}}">
     <div class="heroBar">
         <h1>Ações Bovespa</h1>
-        <p>Última atualização: 00:00 min</p>
+        <p>Última atualização dos preços há <span id="time"></span> min</p>
     </div>
     <div class="block">
         {{#each acoes}}
@@ -16,3 +17,28 @@
         {{/each}}
     </div>
 </div>
+<script>
+    /* Este é a lógica do script que atualiza o horário do Front-end
+    desde a última atualização dos preços das ações que ocorreu no banco de dados*/
+    const timeLastUpdate = new Date(document.getElementById("timeLastUpdate").value)
+    const now = new Date()
+    let segundosPassados = parseInt((now - timeLastUpdate) / 1000)
+    let min = Math.floor(parseInt((segundosPassados/60))).toString()
+    let seg = (segundosPassados%60).toString()
+    min = min.length===1?`0${min}`:min
+    seg = seg.length===1?`0${seg}`:seg
+    document.getElementById("time").innerHTML= `${min}:${seg}`
+    setInterval(updateTime,1000)
+    
+    /* essa função altera, a cada segundo, o tempo passado
+      e atualiza o horário desde a última atualização dos preços das ações*/
+    function updateTime(){
+        segundosPassados++
+        let min = Math.floor(parseInt((segundosPassados/60))).toString()
+        let seg = (segundosPassados%60).toString()
+        min = min.length===1?`0${min}`:min
+        seg = seg.length===1?`0${seg}`:seg
+        document.getElementById("time").innerHTML= `${min}:${seg}`
+        console.log(`${min}:${seg}`)
+    }
+</script>

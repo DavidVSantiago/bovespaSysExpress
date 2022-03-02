@@ -7,7 +7,12 @@ module.exports = {
     async listAcoes(req, res){ // invocada pela rota: get('/acoes/')
         // carrega todas as ações listadas no banco
         const acoes = await Acao.findAll({raw:true})
-        res.render('home',{acoes}) // renderiza a view de exibição das ações
+
+        // obtém o tempo da ultima atualização (de qualquer um dos registros do banco)
+        const timeLastUpdate = acoes[0].updatedAt
+
+        // renderiza a view de exibição das ações
+        res.render('home',{acoes,timeLastUpdate})
     },
     async listDetalhes(req, res){ // invocada pela rota: get('/acoes/detalhes/:id')
         // captura o id da ação selecionada
