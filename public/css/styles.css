@@ -6,7 +6,11 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    background-color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url("/imgs/bg_details.webp");
+    background-color: #f6f7fb;
     height: 100vh;
 }
 
@@ -71,13 +75,6 @@ h1{
     font-size: 18px;
 }
 
-
-.bgDetails{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url("/imgs/bg_details.webp");
-}
 .container{
     display: flex;
     flex-direction: column;
@@ -91,7 +88,6 @@ h1{
     color: #4b814b;
 }
     .container .block{
-        border: 1px solid rgb(226, 226, 226);
         display: flex;
         justify-content: center;
         align-items: flex-start;
