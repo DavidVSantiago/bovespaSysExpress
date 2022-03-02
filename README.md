@@ -7,7 +7,7 @@ Construído em Node.js seguindo o padrão MVC.
 ## FUNCIONAMENTO DO SISTEMA
 Os sistema exibe na tela as informações das ações salvas no banco de dados.
 
-A cada 10 minutos, o sistema busca e salva no banco de dados os preços atualizados das ações - através do site 'valorinveste.globo.com/cotacoes/'.
+A cada 15 minutos, o sistema busca e salva no banco de dados os preços atualizados das ações - através do site 'valorinveste.globo.com/cotacoes/'.
 
 Ao clicar na botão de detalhes de cada ação, o sistema apresenta os seus dados detalhados, que são obtidos em tempo real através do site 'www.fundamentus.com.br'.
 
