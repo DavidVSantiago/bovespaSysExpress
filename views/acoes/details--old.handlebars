@@ -1,0 +1,219 @@
+<div class="container">
+    <input id="id" type="hidden" value="{{acao.code}}">
+    <div class="heroBar">
+        <h1>Detalhes {{acao.code}}</h1>
+    </div>
+    <h3>Dados Básicos</h3>
+    <div class="line">
+        <span class="title">Cotação:</span>
+        <span class="data">{{acao.price}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Papel:</span>
+        <span class="data">{{acao.code}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Nome da Empresa:</span>
+        <span class="data">{{acao.name}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Data últ cot:</span>
+        <span class="data">{{fullData.dataUltCotacao}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Setor:</span>
+        <span class="data">{{fullData.setor}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Subsetor:</span>
+        <span class="data">{{fullData.subSetor}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Min 52 sem:</span>
+        <span class="data">{{fullData.min52sem}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Max 52 sem:</span>
+        <span class="data">{{fullData.max52sem}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Valor de mercado:</span>
+        <span class="data">{{fullData.valorMercado}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Valor da firma:</span>
+        <span class="data">{{fullData.valorFirma}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Últ balanço processado:</span>
+        <span class="data">{{fullData.ultBalancoProc}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Nro. Ações:</span>
+        <span class="data">{{fullData.nroAcoes}}</span>
+    </div>
+    <h3>Indicadores fundamentalistas</h3>
+    <div class="line">
+        <span class="title">P/L</span>
+        <span class="data">{{fullData.pl}}</span>
+    </div>
+    <div class="line">
+        <span class="title">LPA</span>
+        <span class="data">{{fullData.lpa}}</span>
+    </div>
+    <div class="line">
+        <span class="title">P/VP</span>
+        <span class="data">{{fullData.p_vp}}</span>
+    </div>
+    <div class="line">
+        <span class="title">VPA</span>
+        <span class="data">{{fullData.vpa}}</span>
+    </div>
+    <div class="line">
+        <span class="title">P/EBIT</span>
+        <span class="data">{{fullData.p_ebit}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Marg. Bruta</span>
+        <span class="data">{{fullData.margBrut}}</span>
+    </div>
+    <div class="line">
+        <span class="title">PSR</span>
+        <span class="data">{{fullData.psr}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Marg. EBIT</span>
+        <span class="data">{{fullData.margEbit}}</span>
+    </div>
+    <div class="line">
+        <span class="title">P/Ativos</span>
+        <span class="data">{{fullData.p_ativos}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Marg. Líquida</span>
+        <span class="data">{{fullData.margLiquida}}</span>
+    </div>
+    <div class="line">
+        <span class="title">P/Cap. Giro</span>
+        <span class="data">{{fullData.p_capGiro}}</span>
+    </div>
+    <div class="line">
+        <span class="title">EBIT / Ativo</span>
+        <span class="data">{{fullData.ebit_Ativo}}</span>
+    </div>
+    <div class="line">
+        <span class="title">P/Ativ Circ Liq</span>
+        <span class="data">{{fullData.p_ativCircLiq}}</span>
+    </div>
+    <div class="line">
+        <span class="title">ROIC</span>
+        <span class="data">{{fullData.roic}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Div. Yield</span>
+        <span class="data">{{fullData.divYeld}}</span>
+    </div>
+    <div class="line">
+        <span class="title">ROE</span>
+        <span class="data">{{fullData.roe}}</span>
+    </div>
+    <div class="line">
+        <span class="title">EV / EBITDA</span>
+        <span class="data">{{fullData.ev_Ebitda}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Liquidez Corr</span>
+        <span class="data">{{fullData.liqCorrente}}</span>
+    </div>
+    <div class="line">
+        <span class="title">EV / EBIT</span>
+        <span class="data">{{fullData.ev_Ebit}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Div Br/ Patrim</span>
+        <span class="data">{{fullData.divBr_patrim}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Cres. Rec (5a)</span>
+        <span class="data">{{fullData.cresRec5anos}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Giro Ativos</span>
+        <span class="data">{{fullData.girosAtivos}}</span>
+    </div>
+    <h3>Demonstrativo de resultados - Últimos 12 meses</h3>
+    <div class="line">
+        <span class="title">Receita Líquida</span>
+        <span class="data">{{fullData.receitaLiquida12meses}}</span>
+    </div>
+    <div class="line">
+        <span class="title">EBIT</span>
+        <span class="data">{{fullData.ebit12meses}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Lucro Líquido</span>
+        <span class="data">{{fullData.lucroLiquido12meses}}</span>
+    </div>
+    <h3>Demonstrativo de resultados - Últimos 3 anos</h3>
+    <div class="line">
+        <span class="title">Receita Líquida</span>
+        <span class="data">{{fullData.receitaLiquida3meses}}</span>
+    </div>
+    <div class="line">
+        <span class="title">EBIT</span>
+        <span class="data">{{fullData.ebit3meses}}</span>
+    </div>
+    <div class="line">
+        <span class="title">Lucro Líquido</span>
+        <span class="data">{{fullData.lucroLiquido3meses}}</span>
+    </div>
+</div>
+
+<script>
+    // obtem o nome da ação já renderizada na página
+    let acao = document.getElementById('id').value 
+    // inicia o processo de busca das informações detalhadas da ação
+    scraping(acao)
+
+    /* Função que obtem os dados detalhados de cada ação no site fundamentus.com */
+    async function scraping(acao) {
+        const url = `https://www.fundamentus.com.br/detalhes.php?papel=${acao}`;
+        const response = await fetch(`https://api.allorigins.win/get?charset=ISO-8859-1&url=${encodeURIComponent(url)}`)
+        if (!response.ok) throw new Error('Network response was not ok.')
+        const data = await response.json()
+        // inicia o processo de preenchimento dos dados na tela
+        fillData(data.contents)
+    }
+
+    function fillData(html) {
+        // converte o texto da página html em uma estrutura DOM
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        // captura um arrays das 5 tabelas de informações
+        const tables = Array.from(doc.getElementsByClassName("w728"))
+        tables.map((table, index) => {
+            switch (index) {
+                case 0: fillTable1(table); break;
+                case 1: fillTable2(table); break;
+                case 2: fillTable3(table); break;
+                case 4: fillTable5(table); break;
+            }
+        })
+    }
+
+    function fillTable1(table) {
+        const fields = Array.from(table.querySelectorAll("td.data"))
+        fields.map((field, index) => {
+            console.log(index + ": " + field.textContent)
+        })
+        document.ge
+    }
+    function fillTable2(table) {
+
+    }
+    function fillTable3(table) {
+
+    }
+    function fillTable5(table) {
+
+    }
+</script>

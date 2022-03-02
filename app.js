@@ -46,12 +46,12 @@ sequelize
     .then(() => {
         app.listen(port, () => { console.log(`Executando na porta ${port}`) })
         
-        //updateCotacoes() // atualiza as cotações no banco de dados
+        updateCotacoes() // atualiza as cotações no banco de dados
         
         /* Agendador de tarefa. Executa a atualização das ações no banco a cada 10 min*/
         cron.schedule('*/15 * * * *', () => {
             console.log("Atualizando...");
-            //updateCotacoes() // atualiza as cotações no banco de dados
+            updateCotacoes() // atualiza as cotações no banco de dados
         });
     })
     .catch(err => { console.log(err) })
