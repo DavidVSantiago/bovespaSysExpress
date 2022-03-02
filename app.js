@@ -55,8 +55,7 @@ sequelize
         });
     })
     .catch(err => { console.log(err) })
-
-
+    
 /* FUNÇÕES DO BACK-END ************************************/
 async function updateCotacoes(){
     // busca as cotações das ações (scrapping)
