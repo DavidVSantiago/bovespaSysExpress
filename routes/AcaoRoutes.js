@@ -1,5 +1,5 @@
 const express = require('express')
-const AcaoController = require('../controllers/acaoController')
+const AcaoController = require('../controllers/acaoController.js')
 
 // gerenciador de rotas do express
 const router = express.Router()

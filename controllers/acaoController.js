@@ -1,7 +1,8 @@
-const Acao = require('../models/Acao') // imorta o model
+const Acao = require('../models/Acao.js') // imorta o model
 const axios = require('axios')
 const got = require('got');
 const cheerio = require('cheerio')
+const iso88592 = require('iso-8859-2')
 
 // funções invocadas pelas Rotas da Acao
 module.exports = {
@@ -27,8 +28,16 @@ module.exports = {
         }
         try {
             // carrega o html do site com os detalhes da ação
-            const buffer = await axios.get(`https://www.fundamentus.com.br/detalhes.php?papel=${acao.code}`)
-            const html = buffer.data
+            // a requisição é feita de forma binária para posterior decodificação
+            const buffer = await axios.request({
+                method: 'GET',
+                url: `https://www.fundamentus.com.br/detalhes.php?papel=${acao.code}`,
+                responseType: 'arraybuffer',
+                responseEncoding: 'binary'
+            })
+            // faz a decodificação, pois o site usa codificação 'iso-8859-1'
+            const html = iso88592.decode(buffer.data.toString('binary'));
+
             const $ = cheerio.load(html) // converte para json mais legível
             // faz a filtragem com base nos seletores desejados
             $('.w728').each((index, table) => {
