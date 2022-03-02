@@ -12,22 +12,15 @@ A cada 15 minutos, o sistema busca e salva no banco de dados os preços atualiza
 Ao clicar na botão de detalhes de cada ação, o sistema apresenta os seus dados detalhados, que são obtidos em tempo real através do site 'www.fundamentus.com.br'.
 
 ## TECNOLOGIAS E FERRAMENTAS UTILIZADAS
-Node.js: implementação do Back-end
+<strong>Node.js</strong>: implementação do Back-end
+<strong>Express</strong>: framework web para Node.js
+<strong>Handlebars</strong>: template engine para gerar páginas dinâmicas do Front-end
+<strong>MySQL</strong>: SGBD para armazenar as informações de preço das ações
+<strong>Sequelize</strong>: ORM para simplificar a conexão com o banco de dados MySQL
+<strong>Node-cron</strong>: biblioteca utilizada para agendar a tarefa de atualização dos preços das ações
+<strong>Axios</strong>: biblioteca utilizada para fazer requests HTTP no Back-end<
+<strong>Cheerio</strong>: biblioteca utilizada para fazer Data Scraping das informações no Back-end
 
-Express: framework web para Node.js
+Clique <a href="https://bovespa-sys-express.herokuapp.com/" target="_blank">aqui</a> para acessar o sistema.
 
-Handlebars: template engine para gerar páginas dinâmicas do Front-end
-
-MySQL: SGBD para armazenar as informações de preço das ações
-
-Sequelize: ORM para simplificar a conexão com o banco de dados MySQL
-
-Node-cron: biblioteca utilizada para agendar a tarefa de atualização dos preços das ações
-
-Axios: biblioteca utilizada para fazer requests HTTP
-
-Cheerio: biblioteca utilizada para fazer Data Scraping das informações
-
-Clique <a href="#" target="_blank">aqui</a> para acessar o sistema.
-
-<img src="pics/img.jpg" width=44%>
+<img src="pics/sys_01.jpg" width=44%>
