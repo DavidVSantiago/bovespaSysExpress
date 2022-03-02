@@ -4,6 +4,8 @@ Exemplo de um sistema que faz uso da técnica de Data Scraping para obtenção d
 
 Construído em Node.js seguindo o padrão MVC.
 
+<img src="pics/sys_01.jpg" width=44%>
+
 ## FUNCIONAMENTO DO SISTEMA
 Os sistema exibe na tela as informações das ações salvas no banco de dados.
 
@@ -20,7 +22,6 @@ Ao clicar na botão de detalhes de cada ação, o sistema apresenta os seus dado
 <p><strong>Node-cron</strong>: biblioteca utilizada para agendar a tarefa de atualização dos preços das ações</p>
 <p><strong>Axios</strong>: biblioteca utilizada para fazer requests HTTP no Back-end</p>
 <p><strong>Cheerio</strong>: biblioteca utilizada para fazer Data Scraping das informações no Back-end</p>
-
+<hr>
 Clique <a href="https://bovespa-sys-express.herokuapp.com/" target="_blank">aqui</a> para acessar o sistema.
-
-<img src="pics/sys_01.jpg" width=44%>
+<hr>
