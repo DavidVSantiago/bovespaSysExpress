@@ -82,7 +82,6 @@ async function loadCotacoes() {
         // carrega o html do site com as cotações
         const buffer = await axios.get('https://valorinveste.globo.com/cotacoes/')
         const html = buffer.data // extrai o código html
-        console.log('OBTEVE O HTML!')
         const $ = cheerio.load(html) // converte para json mais legível
         // faz a filtragem com base nos seletores desejados
         let acoes = []
@@ -97,11 +96,9 @@ async function loadCotacoes() {
                 const acao = {
                     name, code, price
                 }
-                console.log('ADICIONANDO AÇÃO!')
                 acoes.push(acao)
             }
         })
-        console.log('RETORNANDO AÇÕES!')
         return acoes // retorna as ações carregadas
     } catch (err) {
         console.log(err)

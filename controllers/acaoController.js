@@ -36,11 +36,10 @@ module.exports = {
             })
             // faz a decodificação, pois o site usa codificação 'iso-8859-1'
             const html = iso88592.decode(buffer.data.toString('binary'));
-
+            console.log('Obteve o html decodificado *****************************************')
             const $ = cheerio.load(html) // converte para json mais legível
             // faz a filtragem com base nos seletores desejados
             $('.w728').each((index, table) => {
-                console.log("PRINT!");
                 const fields = $(table).find('.data > .txt')
                 switch(index){
                     case 0: fillTable1(fields,fullData); break;
@@ -50,7 +49,7 @@ module.exports = {
                 }
             })
         } catch (err) {
-            console.log(err)
+            console.log("Erro na requisição Fundamentus: "+err)
         }
         res.render('acoes/details',{acao,fullData}) // renderiza a view de exibição das ações
     },
@@ -61,6 +60,7 @@ module.exports = {
 }
 /* Funções de apoio ********************************************************************************/
 function fillTable1(fields,fullData){
+    console.log('Preenchendo tabela 1 *****************************************')
     fullData.papel = fields[0].children[0].data.trim()
     fullData.cotacao = fields[1].children[0].data.trim()
     fullData.tipo = fields[2].children[0].data.trim()
@@ -72,12 +72,14 @@ function fillTable1(fields,fullData){
     fullData.subSetor = fields[8].children[0].children[0].data.trim()
 }
 function fillTable2(fields,fullData){
+    console.log('Preenchendo tabela 2 *****************************************')
     fullData.valorMercado = fields[0].children[0].data.trim()
     fullData.ultBalancoProc = fields[1].children[0].data.trim()
     fullData.valorFirma = fields[2].children[0].data.trim()
     fullData.nroAcoes = fields[3].children[0].data.trim()
 }
 function fillTable3(fields,fullData){
+    console.log('Preenchendo tabela 3 *****************************************')
     fullData.pl = fields[0].children[0].data.trim() // pl
     fullData.lpa = fields[1].children[0].data.trim() // lpa
     fullData.p_vp = fields[2].children[0].data.trim() // p-vp
@@ -102,6 +104,7 @@ function fillTable3(fields,fullData){
     fullData.girosAtivos = fields[21].children[0].data.trim() // girosAtivos
 }
 function fillTable5(fields,fullData){
+    console.log('Preenchendo tabela 5 *****************************************')
     fullData.receitaLiquida12meses = fields[0].children[0].data.trim() // Receita Líquida 12 meses
     fullData.receitaLiquida3meses = fields[1].children[0].data.trim() // Receita Líquida 3 meses
     fullData.ebit12meses = fields[2].children[0].data.trim() // EBIT 12 meses
