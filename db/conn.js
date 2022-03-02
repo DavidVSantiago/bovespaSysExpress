@@ -1,7 +1,7 @@
 const {Sequelize} = require('sequelize')
 
 /* Cria uma instancia do Sequelize com as informações do banco de dados */
-const sequelize = new Sequelize('bovespasysexpress','root','Rasta16@',{
+const sequelize = new Sequelize('heroku_da312469df1c0c0','b2f03fc1812555','349e0765',{
     host: 'localhost',
     dialect: 'mysql',
 })
