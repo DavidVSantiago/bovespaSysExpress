@@ -23,7 +23,6 @@
     "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
-    "got": "^11.0.2",
     "iso-8859-2": "^1.1.0",
     "mysql2": "^2.3.3",
     "node-cron": "^3.0.0",

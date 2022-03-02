@@ -1,6 +1,5 @@
 const Acao = require('../models/Acao.js') // imorta o model
 const axios = require('axios')
-const got = require('got');
 const cheerio = require('cheerio')
 const iso88592 = require('iso-8859-2')
 
