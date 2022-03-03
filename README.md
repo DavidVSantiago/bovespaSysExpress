@@ -4,7 +4,7 @@ Exemplo de um sistema que faz uso da técnica de Data Scraping para obtenção d
 
 Construído em Node.js seguindo o padrão MVC.
 
-<img src="pics/sys_01.jpg" width=44%>
+<img src="pics/sys_01.jpg" width=80%>
 
 ## FUNCIONAMENTO DO SISTEMA
 Os sistema exibe na tela as informações das ações salvas no banco de dados.
