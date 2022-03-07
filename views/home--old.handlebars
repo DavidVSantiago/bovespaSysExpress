@@ -73,7 +73,7 @@
 
 
     /* Este é a lógica do script que atualiza o horário desde a última atualização dos preços*/
-    //const timeLastUpdate = new Date(document.getElementById("timeLastUpdate").value)
+    const timeLastUpdate = new Date(document.getElementById("timeLastUpdate").value)
     const now = new Date()
     let segundosPassados = parseInt((now - timeLastUpdate) / 1000)
     let min = Math.floor(parseInt((segundosPassados/60))).toString()
