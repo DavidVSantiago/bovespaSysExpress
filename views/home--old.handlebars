@@ -9,7 +9,7 @@
         <div class="acao">
             <div class="name">{{this.name}}</div>
             <div class="code">{{this.code}}</div>
-            <div class="price"></div>
+            <div class="price">buscando...</div>
             <div class="button">
                 <a href="/acoes/detalhes/{{this.id}}">Detalhes</a>
             </div>
@@ -21,11 +21,10 @@
      // inicia o processo de busca das informações detalhadas da ação
     searchPrecos()
 
-    setInterval(searchPrecos,900000) // atualiza os preços a cada 15 min
+    setInterval(searchPrecos,15000)
 
     /* Esta função realiza a busca dos preços das ações carregadas na tela*/
     async function searchPrecos(){
-        atualizandoTexto()
         const url = 'https://valorinveste.globo.com/cotacoes/';
         const response = await fetch(`https://api.allorigins.win/get?charset=utf-8&url=${encodeURIComponent(url)}`)
         if (!response.ok) throw new Error('Network response was not ok.')
@@ -52,7 +51,6 @@
             acoes.push(acao) 
         })
         fillData(acoes)
-        segundosPassados = 0 // zera o cronometro de tempo desde a ultima atualização
     }
 
     /* preenhe os preços das ações na tela*/
@@ -73,30 +71,27 @@
         return 'Sem preço!'
     }
 
-    function atualizandoTexto(){
-         const acoesDOM = Array.from(document.getElementsByClassName('acao'))
-         acoesDOM.map((acaoDOM, index)=>{
-             acaoDOM.children[2].innerHTML = 'buscando...'
-         })
-    }
 
     /* Este é a lógica do script que atualiza o horário desde a última atualização dos preços*/
-    let segundosPassados = 0
+    //const timeLastUpdate = new Date(document.getElementById("timeLastUpdate").value)
+    const now = new Date()
+    let segundosPassados = parseInt((now - timeLastUpdate) / 1000)
     let min = Math.floor(parseInt((segundosPassados/60))).toString()
     let seg = (segundosPassados%60).toString()
     min = min.length===1?`0${min}`:min
     seg = seg.length===1?`0${seg}`:seg
     document.getElementById("time").innerHTML= `${min}:${seg}`
-    
-    function updateTime(){
+    setInterval(updateTime,1000)
+    */
+    /* essa função altera, a cada segundo, o tempo passado
+      e atualiza o horário desde a última atualização dos preços das ações*/
+    /*function updateTime(){
         segundosPassados++
         let min = Math.floor(parseInt((segundosPassados/60))).toString()
         let seg = (segundosPassados%60).toString()
         min = min.length===1?`0${min}`:min
         seg = seg.length===1?`0${seg}`:seg
         document.getElementById("time").innerHTML= `${min}:${seg}`
-    }
-    // a cada segundo, atualiza o relógio que conta o tempo
-    // desde a última atualização
-    setInterval(updateTime,1000)
+        console.log(`${min}:${seg}`)
+    }*/
 </script>
