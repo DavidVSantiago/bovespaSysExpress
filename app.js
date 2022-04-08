@@ -8,6 +8,8 @@ const acaoRoutes = require('./routes/AcaoRoutes')
 const Acao = require('./models/Acao')
 const port = process.env.PORT || 3000
 
+// alterado por marcos no dia 08/04/2022
+
 // configurações do 'express'
 const app = express()
 app.use(
